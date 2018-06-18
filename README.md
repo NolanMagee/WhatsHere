@@ -1,7 +1,7 @@
-Map + Tweet. (called What's Going on Here?)
-Have a map display using Google Maps API.
-When User clicks a location, display the most popular Tweet (using Twitter API) within specified range of location (default 100km).
-optional: Find other popular things within that range, most popular recent News Article, maybe most popular Instagram post or Reddit post or Flickr image.
+Map + Tweet. (called What's Going on Here?)  
+Have a map display using Google Maps API.  
+When User clicks a location, display the most popular Tweet (using Twitter API) within specified range of location (default 100km).  
+optional: Find other popular things within that range, most popular recent News Article, maybe most popular Instagram post or Reddit post or Flickr image.  
 
 Plan:
 1. Add Google Maps API
