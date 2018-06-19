@@ -1,3 +1,7 @@
+//from https://gist.github.com/mthorry/9885ac335784d0b7cf380deca3924c46#file-appcontainer-js
+// Thanks!
+//tutorial from here: https://medium.com/front-end-hacking/simplified-google-maps-api-in-a-react-app-46981441d2c9
+
 import React, { Component } from 'react';
 import {GoogleApiWrapper} from 'google-maps-react';
 import MapContainer from './MapContainer';
