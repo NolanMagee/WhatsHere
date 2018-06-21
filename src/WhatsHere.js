@@ -9,13 +9,22 @@ import MapContainer from './MapContainer';
 class WhatsHere extends Component{
   constructor(props){
     super(props);
+    this.state={
+      lat : null,
+      long : null
+    }
+  }
+
+  getLatLng=(event)=>{
+    this.setState({lat: event.latLng.lat(), long: event.latLng.lng()});
+    alert("Latitude :" + this.state.lat + " Longitude: " + this.state.long);
   }
 
   render(){
     return(<div>
       <h1>"What's Going on Here?"</h1>
       <h3> Using Google Maps API and React </h3>
-      <MapContainer google={this.props.google} />
+      <MapContainer google={this.props.google} getLatLng={this.getLatLng} />
       </div>
     )
   }

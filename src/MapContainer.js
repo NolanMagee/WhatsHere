@@ -16,7 +16,7 @@ export default class MapContainer extends Component {
 
   loadMap() {
     if (this.props && this.props.google) { // checks to make sure that props have been passed
-      const {google} = this.props; // sets props equal to google
+      const google = this.props.google; // sets props equal to google
       const maps = google.maps; // sets maps to google maps props
 
       const mapRef = this.refs.map; // looks for HTML div ref 'map'. Returned in render below.
@@ -29,6 +29,7 @@ export default class MapContainer extends Component {
       })
 
       this.map = new maps.Map(node, mapConfig); // creates a new Google map on the specified node (ref='map') with the specified configuration set above.
+      google.maps.event.addListener(this.map, 'click',  this.props.getLatLng);
 
     }
   }
