@@ -5,6 +5,7 @@
 import React, { Component } from 'react';
 import {GoogleApiWrapper} from 'google-maps-react';
 import MapContainer from './MapContainer';
+import WeatherContainer from './WeatherContainer'
 
 class WhatsHere extends Component{
   constructor(props){
@@ -17,7 +18,7 @@ class WhatsHere extends Component{
 
   getLatLng=(event)=>{
     this.setState({lat: event.latLng.lat(), long: event.latLng.lng()});
-    alert("Latitude :" + this.state.lat + " Longitude: " + this.state.long);
+    //alert("Latitude :" + this.state.lat + " Longitude: " + this.state.long);
   }
 
   render(){
@@ -25,6 +26,7 @@ class WhatsHere extends Component{
       <h1>"What's Going on Here?"</h1>
       <h3> Using Google Maps API and React </h3>
       <MapContainer google={this.props.google} getLatLng={this.getLatLng} />
+      <WeatherContainer lat={this.state.lat} long={this.state.long} />
       </div>
     )
   }
