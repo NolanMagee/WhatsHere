@@ -22,7 +22,7 @@ class WeatherContainer extends Component{
 
     })
     .catch((error)=>{
-      alert(error.message);
+      console.log("Weather API error: " + error.message);
     })
   }
 

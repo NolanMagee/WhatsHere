@@ -11,9 +11,10 @@ class WhatsHere extends Component{
   constructor(props){
     super(props);
     this.state={
-      lat : null,
+      lat : null, //New York City
       long : null
     }
+
   }
 
   getLatLng=(event)=>{
@@ -25,7 +26,7 @@ class WhatsHere extends Component{
     return(<div>
       <h1>"What's Going on Here?"</h1>
       <h3> Using Google Maps API and React </h3>
-      <MapContainer google={this.props.google} getLatLng={this.getLatLng} />
+      <MapContainer google={this.props.google} getLatLng={this.getLatLng} lat={this.state.lat} long={this.state.long} />
       <WeatherContainer lat={this.state.lat} long={this.state.long} />
       </div>
     )
