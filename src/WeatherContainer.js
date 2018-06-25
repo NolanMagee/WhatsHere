@@ -15,32 +15,27 @@ class WeatherContainer extends Component{
     fetch( weatherURL + "lat=" + this.props.lat + "&lon=" + this.props.long)
     .then(response=>response.json())
     .then((response)=>{
-
-        this.weather= response.weather[0].description;
-        this.icon = response.weather[0].icon;
-        this.temperature= response.main.temp;
-
+        this.setState({
+        weather: response.weather[0].description,
+        icon: response.weather[0].icon,
+        temperature: response.main.temp
+      });
     })
     .catch((error)=>{
       console.log("Weather API error: " + error.message);
     })
   }
 
-  componentDidMount(){
-    this.findWeather();
-  }
-
-  componentWillUpdate(){
-    this.findWeather();
-  }
-
 
   render(){
+
+    this.findWeather();
+
     return(
     <div>
-        The weather at the selected location is {this.weather} <br />
-        It is currently {this.temperature || " unknown "}C <br />
-        <img id="weather-icon" src={this.icon} alt=" weather icon" />
+        The weather at the selected location is {this.state.weather} <br />
+        It is currently {this.state.temperature || " unknown "}C <br />
+        <img id="weather-icon" src={this.state.icon} alt=" weather icon" />
       </div>
     )
   }
