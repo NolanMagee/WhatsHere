@@ -26,10 +26,19 @@ class WeatherContainer extends Component{
     })
   }
 
+  componentDidMount(){
+    this.findWeather();
+  }
+
+  componentDidUpdate(prevProps){
+    if (prevProps.lat !== this.props.lat && prevProps.long !== this.props.long){
+      this.findWeather();
+    }
+  }
 
   render(){
 
-    this.findWeather();
+
 
     return(
     <div>
