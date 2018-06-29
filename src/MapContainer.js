@@ -5,6 +5,10 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 
 export default class MapContainer extends Component {
+  constructor(props){
+    super(props);
+    this.zoom=11;
+  }
 
 
   componentDidMount(){
@@ -13,6 +17,7 @@ export default class MapContainer extends Component {
 
 
   componentDidUpdate() {
+    this.zoom = this.map.getZoom();
     this.loadMap(); // call loadMap function to load the google map
   }
 
@@ -24,15 +29,17 @@ export default class MapContainer extends Component {
       const mapRef = this.refs.map; // looks for HTML div ref 'map'. Returned in render below.
       const node = ReactDOM.findDOMNode(mapRef); // finds the 'map' div in the React DOM, names it node
       let center;
-      if (this.props.lat && this.props.long){
-        center= {lat: this.props.lat, lng: this.props.long};
+
+      if (this.props.lat && this.props.lng ){
+        center= {lat: this.props.lat, lng: this.props.lng};
+
       }
       else{
         center= {lat: 40.7485722, lng: -74.0068633}; //New York City
       }
       const mapConfig = Object.assign({}, {
         center: center, // sets center of google map to NYC.
-        zoom: 11, // sets zoom. Lower numbers are zoomed further out.
+        zoom: this.zoom, // sets zoom. Lower numbers are zoomed further out.
         mapTypeId: 'roadmap' // optional main map layer. Terrain, satellite, hybrid or roadmap--if unspecified, defaults to roadmap.
       })
 
@@ -40,7 +47,7 @@ export default class MapContainer extends Component {
       //console.log(this.props.long);
 
       this.map = new maps.Map(node, mapConfig); // creates a new Google map on the specified node (ref='map') with the specified configuration set above.
-      google.maps.event.addListener(this.map, 'click',  this.props.getLatLng);
+      google.maps.event.addListener(this.map, 'click', this.props.getLatLng);
 
     }
   }

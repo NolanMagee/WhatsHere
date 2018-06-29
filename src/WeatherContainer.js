@@ -12,7 +12,7 @@ class WeatherContainer extends Component{
   }
   findWeather(){
     let weatherURL = "https://fcc-weather-api.glitch.me/api/current?";
-    fetch( weatherURL + "lat=" + this.props.lat + "&lon=" + this.props.long)
+    fetch( weatherURL + "lat=" + this.props.lat + "&lon=" + this.props.lng)
     .then(response=>response.json())
     .then((response)=>{
         this.setState({
@@ -31,7 +31,7 @@ class WeatherContainer extends Component{
   }
 
   componentDidUpdate(prevProps){
-    if (prevProps.lat !== this.props.lat && prevProps.long !== this.props.long){
+    if (prevProps.lat !== this.props.lat && prevProps.lng !== this.props.lng){
       this.findWeather();
     }
   }
