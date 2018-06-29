@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
+
 
 class WeatherContainer extends Component{
   constructor(props){

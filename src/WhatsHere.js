@@ -12,20 +12,46 @@ class WhatsHere extends Component{
     super(props);
     this.state={
       lat : null,
-      lng : null
+      lng : null,
+      country: null,
+      city: null
     }
-    this.geocoder = new this.props.google.maps.Geocoder;
+    //grabs Location information from latitude/longitude
+    this.geocoder = new this.props.google.maps.Geocoder();
+  }
+
+  getCityCountry(results){
+    let i = results.address_components.length;
+
   }
 
   getLatLng=(event)=>{
     let lat = event.latLng.lat();
     let lng = event.latLng.lng();
+    let country;
+    let city;
     let latLng = {lat: lat, lng: lng};
     //Use event.latLng and put it into Reverse Geocode api (this.props.google.maps.Geocoder().geocode)
     //use let geocoder = new this.props.google.maps.Geocoder , then geocoder.geocode('location':latLng)
     //do .then (this.setState) and set lat,lng, country, PoI all at same time
     this.geocoder.geocode({'location': latLng}, (results,status)=>{
-      console.log(results[0].formatted_address);
+      if (status === 'OK'){
+        country = results[results.length-1].formatted_address; //highest result in array is country
+        console.log("Country: ", country);
+
+        city = results[0].address_components.find(function(addr){
+          return (addr.types.includes("locality") || addr.types.includes("sublocality"));
+      });
+        city = city.long_name;
+        console.log("City: ", city);
+        this.setState({country: country, city: city});
+      }
+
+
+      else {
+        console.log("ERROR: ", status , " Click on land, please!");
+      }
+
     });
 
     this.setState({lat: lat, lng: lng});
