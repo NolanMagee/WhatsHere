@@ -5,7 +5,8 @@
 import React, { Component } from 'react';
 import {GoogleApiWrapper} from 'google-maps-react';
 import MapContainer from './MapContainer';
-import WeatherContainer from './WeatherContainer'
+import NewsContainer from './NewsContainer';
+import WeatherContainer from './WeatherContainer';
 
 class WhatsHere extends Component{
   constructor(props){
@@ -36,13 +37,18 @@ class WhatsHere extends Component{
     //do .then (this.setState) and set lat,lng, country, PoI all at same time
     this.geocoder.geocode({'location': latLng}, (results,status)=>{
       if (status === 'OK'){
-        country = results[results.length-1].formatted_address; //highest result in array is country
+        country = results[results.length-1].formatted_address; //re-do this to use same method as city, e.g. .includes(country)
         console.log("Country: ", country);
 
         city = results[0].address_components.find(function(addr){
           return (addr.types.includes("locality") || addr.types.includes("sublocality"));
-      });
-        city = city.long_name;
+          });
+
+        if (city != null){
+          city = city.long_name;
+        }
+        else(city= "No city here");
+
         console.log("City: ", city);
         this.setState({country: country, city: city});
       }
@@ -64,6 +70,8 @@ class WhatsHere extends Component{
       <h3> Using Google Maps API and React </h3>
       <MapContainer google={this.props.google} getLatLng={this.getLatLng} lat={this.state.lat} lng={this.state.lng} />
       <WeatherContainer lat={this.state.lat} lng={this.state.lng} />
+      <br />
+      <NewsContainer city={this.state.city} country={this.state.country}/>
       </div>
     )
   }
