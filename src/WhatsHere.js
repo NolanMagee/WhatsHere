@@ -7,6 +7,7 @@ import {GoogleApiWrapper} from 'google-maps-react';
 import MapContainer from './MapContainer';
 import NewsContainer from './NewsContainer';
 import WeatherContainer from './WeatherContainer';
+import TweetContainer from './TweetContainer';
 
 class WhatsHere extends Component{
   constructor(props){
@@ -72,6 +73,7 @@ class WhatsHere extends Component{
       <WeatherContainer lat={this.state.lat} lng={this.state.lng} />
       <br />
       <NewsContainer city={this.state.city} country={this.state.country}/>
+      <TweetContainer lat={this.state.lat} lng={this.state.lng}/>
       </div>
     )
   }

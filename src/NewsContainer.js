@@ -9,10 +9,11 @@ class NewsContainer extends Component{
     };
   }
 
-  fetchNews(param, fn){ //rewrite this using await instead of .then
+  fetchNews(param, fn){ //add specifier for english articles only, and use Country code instead of country name
     let article = {title: null, body: null};
     let url = 'https://newsapi.org/v2/top-headlines?q=' +
               param +
+              '&language=en' + 
               '&sortBy=popularity' +
               '&apiKey=b0ecb7d102c3450ea8f3b1cec7598d8d';
 
