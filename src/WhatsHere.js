@@ -8,6 +8,7 @@ import MapContainer from './MapContainer';
 import NewsContainer from './NewsContainer';
 import WeatherContainer from './WeatherContainer';
 import TweetContainer from './TweetContainer';
+import './WhatsHere.css'
 
 class WhatsHere extends Component{
   constructor(props){
@@ -66,14 +67,22 @@ class WhatsHere extends Component{
   }
 
   render(){
-    return(<div>
-      <h1>"What's Going on Here?"</h1>
-      <h3> Using Google Maps API and React </h3>
-      <MapContainer google={this.props.google} getLatLng={this.getLatLng} lat={this.state.lat} lng={this.state.lng} />
-      <WeatherContainer lat={this.state.lat} lng={this.state.lng} />
-      <br />
-      <NewsContainer city={this.state.city} country={this.state.country}/>
-      <TweetContainer lat={this.state.lat} lng={this.state.lng}/>
+    return(<div id="mainPage">
+      <div id="header">
+        <h1>"What's Going on Here?"</h1>
+        <h3> Using Google Maps API and React </h3>
+      </div>
+
+        <div id="map">
+          <MapContainer id="mc" google={this.props.google} getLatLng={this.getLatLng} lat={this.state.lat} lng={this.state.lng} />
+        </div>
+        <div id="locinfo">
+            <WeatherContainer id="weather" lat={this.state.lat} lng={this.state.lng} />
+            <br />
+            <NewsContainer id="news" city={this.state.city} country={this.state.country}/>
+            <TweetContainer id="tweet" lat={this.state.lat} lng={this.state.lng}/>
+        </div>
+
       </div>
     )
   }

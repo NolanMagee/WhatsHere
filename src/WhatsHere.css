@@ -1,0 +1,45 @@
+#mainPage{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
+  display: grid;
+  grid-template-areas:
+    "h h h h h h h h"
+    "m m m m w t t t"
+    "m m m m w n n n";
+}
+
+#header{
+  grid-area: h;
+}
+
+#map{
+  grid-area: m;
+  width: 90%;
+  height: 90vh;
+}
+
+#mc{
+
+}
+
+#locinfo{
+
+  width: 90%;
+  padding-left: 10px;
+}
+
+#weather{
+  grid-area: w;
+  border: 3px;
+}
+
+#news{
+  grid-area: n;
+  border: 3px;
+}
+
+#tweet{
+  grid-area: t;
+  border: 3px;
+}
