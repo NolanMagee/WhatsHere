@@ -5,4 +5,4 @@ import WhatsHere from './WhatsHere.js';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<WhatsHere />, document.getElementById('root'));
-registerServiceWorker();
+//registerServiceWorker();

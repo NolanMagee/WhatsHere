@@ -67,21 +67,20 @@ class WhatsHere extends Component{
   }
 
   render(){
-    return(<div id="mainPage">
-      <div id="header">
+    return(<div className="mainPage">
+      <div className="header">
         <h1>"What's Going on Here?"</h1>
         <h3> Using Google Maps API and React </h3>
       </div>
 
-        <div id="map">
-          <MapContainer id="mc" google={this.props.google} getLatLng={this.getLatLng} lat={this.state.lat} lng={this.state.lng} />
+        <div className="map">
+          <MapContainer className="mc" google={this.props.google} getLatLng={this.getLatLng} lat={this.state.lat} lng={this.state.lng} />
         </div>
-        <div id="locinfo">
-            <WeatherContainer id="weather" lat={this.state.lat} lng={this.state.lng} />
-            <br />
-            <NewsContainer id="news" city={this.state.city} country={this.state.country}/>
-            <TweetContainer id="tweet" lat={this.state.lat} lng={this.state.lng}/>
-        </div>
+
+            <WeatherContainer className="weather" lat={this.state.lat} lng={this.state.lng} />
+            <NewsContainer className="news" city={this.state.city} country={this.state.country}/>
+            <TweetContainer className="tweet" lat={this.state.lat} lng={this.state.lng}/>
+
 
       </div>
     )
