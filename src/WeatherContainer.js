@@ -35,16 +35,15 @@ class WeatherContainer extends Component{
       this.findWeather();
     }
   }
-
+  //{this.state.icon ? <img id="weather-icon" src={this.state.icon} alt=" weather icon" /> : "no icon"}
   render(){
 
 
 
     return(
-    <div>
-        The weather at the selected location is {this.state.weather} <br />
-        It is currently {this.state.temperature || " unknown "}C <br />
-        <img id="weather-icon" src={this.state.icon} alt=" weather icon" />
+    <div style={{'border-style': 'solid', 'border-width': '3px'}}>
+        <h3> Weather: <strong>{this.state.weather} </strong><br /></h3>
+        <h3> Temperature: <strong>{this.state.temperature || " unknown "}C </strong></h3>
       </div>
     )
   }

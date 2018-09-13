@@ -35,7 +35,7 @@ export default class MapContainer extends Component {
 
       }
       else{
-        center= {lat: 40.7485722, lng: -74.0068633}; //New York City
+        center= {lat: 49.2827, lng: -123.1207}; //Vancouver
       }
       const mapConfig = Object.assign({}, {
         center: center, // sets center of google map to NYC.

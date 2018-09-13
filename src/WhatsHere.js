@@ -70,7 +70,13 @@ class WhatsHere extends Component{
     return(<div className="mainPage">
       <div className="header">
         <h1>"What's Going on Here?"</h1>
-        <h3> Using Google Maps API and React </h3>
+
+        {this.state.country && this.state.city
+          ? <h3> Country: {this.state.country} <br /> Locality: {this.state.city} </h3>
+          : <div><h3> Using Google Maps API and React. This is a work in progress! </h3>
+            <p> Click any land location to find weather, news, and a local tweet!</p></div>
+        }
+
       </div>
 
         <div className="map">

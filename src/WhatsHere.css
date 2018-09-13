@@ -1,36 +1,45 @@
 .mainPage{
   margin-left: auto;
+  padding-left: 300px;
   margin-right: auto;
   max-width: 90%;
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
   grid-template-areas:
     "h h h h"
-    "w w m m"
-    "n n m m"
-    "t t m m";
+    "w m m m"
+    "n m m m"
+    "t m m m";
 }
 
 .header{
   grid-area: h;
+  border-bottom-style: solid;
+  border-width: 5px;
+
 }
 
 .map{
   grid-area: m;
-  
+  margin-left: 30px;
+
 }
 
 .weather{
   grid-area: w;
   border-width: 3px;
+  
 }
 
 .news{
   grid-area: n;
   border-width: 3px;
-  margin-left: auto;
+  margin: 3px;
 }
 
 .tweet{
   grid-area: t;
   border-width: 3px;
+  margin: 3px;
 }

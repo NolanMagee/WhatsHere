@@ -13,7 +13,7 @@ class NewsContainer extends Component{
     let article = {title: null, body: null};
     let url = 'https://newsapi.org/v2/top-headlines?q=' +
               param +
-              '&language=en' + 
+              '&language=en' +
               '&sortBy=popularity' +
               '&apiKey=b0ecb7d102c3450ea8f3b1cec7598d8d';
 
@@ -56,21 +56,25 @@ class NewsContainer extends Component{
 
   }
 
+
   render(){
     return(
-      <div>
-      <div id="Country Article">
-      Country Article: < br/>
-      Title: {this.state.countryArticle.title} <br />
-      Body: {this.state.countryArticle.body}
+
+      <div style={{'border-style': 'solid', 'border-width': '3px'}}>
+
+      <div id="Country Article" style={{'border-style': 'dashed', 'border-width': '1px'}}>
+
+    <h2> {this.state.countryArticle.title} <br /> </h2>
+      <p>{this.state.countryArticle.body} </p>
       </div>
-      <div id = "City Article">
-      City Article: < br/>
-      Title: {this.state.cityArticle.title} <br />
-      Body: {this.state.cityArticle.body}
+      <div id = "City Article" style={{'border-style': 'dashed', 'border-width': '1px'}}>
+
+    <h2> {this.state.cityArticle.title} <br /> </h2>
+       <p> {this.state.cityArticle.body} </p>
       </div>
 
       </div>
+
     );
   }
 }
